@@ -4,10 +4,10 @@ Iteriam Calculator Test Application
 # Port where the microservice publish the API Methods
 Microservice Port: 8081
 
-#Registrstion of in maven local repository of tracer-1.0.0.jar
+# Registrstion of in maven local repository of tracer-1.0.0.jar
 mvn install:install-file -Dfile=tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=io.corp.calculator -Dversion=<version> 1.0.0 -Dpackaging=jar
 
-#Adding the dependency to pom.xml file
+# Adding the dependency to pom.xml file
 
 		<!--Spring dependencies -->
 		<dependency>
