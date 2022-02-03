@@ -2,7 +2,9 @@
 Iteriam Calculator Test Application
 
 # Port where the microservice publish the API Methods
-Microservice Port: 8081
+Microservice Port: 
+	8081: Active profile = dev
+	8082: Active profile = default profile
 
 # Registrstion of in maven local repository of tracer-1.0.0.jar
 mvn install:install-file -Dfile=tracer-1.0.0.jar -DgroupId=io.corp.calculator -DartifactId=io.corp.calculator -Dversion=<version> 1.0.0 -Dpackaging=jar
@@ -17,16 +19,15 @@ mvn install:install-file -Dfile=tracer-1.0.0.jar -DgroupId=io.corp.calculator -D
   		</dependency>
    
 # Compile and run the microservice
-mvn clean install
-mvn spring-boot:run
+mvn -Dmaven.compiler.fork=true clean install -U spring-boot:run -Dmaven.test.skip=true -f pom.xml
 
 # Run Test
 mvn test
 
 # Swagger URL
-http://localhost:8081/swagger-ui/index.html
+http://localhost:<server.port>/swagger-ui/index.html
 
-# Endpoints
+# EndPoints
 http://localhost:8081/api/calculator/add?firstValue=1&secondValue=1
 http://localhost:8081/api/calculator/multiply?firstValue=1&secondValue=1
 http://localhost:8081/api/calculator/subtract?firstValue=1&secondValue=1
@@ -41,3 +42,4 @@ Junit
 Mockito
 rest-assured
 Eclipse
+Maven
