@@ -4,9 +4,6 @@ package com.iteriam.controller;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import junit.framework.Assert;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -14,13 +11,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.text.MessageFormat;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -30,7 +25,6 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.iteriam.calculator.exception.BadRequestException;
 import com.iteriam.calculator.model.CalculationDTO;
 
 import io.corp.calculator.TracerImpl;
@@ -77,7 +71,6 @@ public class CalculatorControllerTest {
 		assertTrue((result.getResponse().getStatus() == HttpStatus.BAD_REQUEST.value()) &&
 				(result.getResponse().getErrorMessage().equals("Please enter a valid input values")) && 
 				(result.getResponse().getContentLength() == 0));
-				
     }
     
     @Test
