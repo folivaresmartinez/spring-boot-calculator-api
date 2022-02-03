@@ -28,9 +28,10 @@ mvn test
 http://localhost:<server.port>/swagger-ui/index.html
 
 # EndPoints
-http://localhost:8081/api/calculator/add?firstValue=1&secondValue=1
-http://localhost:8081/api/calculator/multiply?firstValue=1&secondValue=1
-http://localhost:8081/api/calculator/subtract?firstValue=1&secondValue=1
+	http://localhost:8081/api/calculator/add?firstValue=1&secondValue=1	
+	http://localhost:8081/api/calculator/multiply?firstValue=1&secondValue=1
+	http://localhost:8081/api/calculator/subtract?firstValue=1&secondValue=1
+	
 
 # Technologies
 Java 8
