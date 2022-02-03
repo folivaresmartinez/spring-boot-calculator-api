@@ -18,10 +18,26 @@ mvn install:install-file -Dfile=tracer-1.0.0.jar -DgroupId=io.corp.calculator -D
    
 # Compile and run the microservice
 mvn clean install
-
 mvn spring-boot:run
 
 # Run Test
 mvn test
 
+# Swagger URL
+http://localhost:8081/swagger-ui/index.html
 
+# Endpoints
+http://localhost:8081/api/calculator/add?firstValue=1&secondValue=1
+http://localhost:8081/api/calculator/multiply?firstValue=1&secondValue=1
+http://localhost:8081/api/calculator/subtract?firstValue=1&secondValue=1
+
+# Technologies
+Java 8
+Swagger
+Spring Boot
+Spring AOP
+Lombok
+Junit
+Mockito
+rest-assured
+Eclipse
