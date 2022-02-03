@@ -1,0 +1,1 @@
+mvn -Dmaven.compiler.fork=true clean install -U spring-boot:run -Dmaven.test.skip=true -f pom.xml
