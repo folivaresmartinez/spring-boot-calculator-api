@@ -70,17 +70,6 @@ public class CalculatorController {
 	
 	return ResponseEntity.ok().body(this.calculatorService.multiply(Optional.ofNullable(values)));
 	
-	}	
-	
-	@Operation(summary = "divide", tags = {
-	"Calculator" }, description = "Returns a result, based on the values entered. or non numeric , negative numbers will simulate API error conditions", responses = {
-			@ApiResponse(description = "The Calculator", content = @Content(schema = @Schema(implementation = CalculationRequest.class))),
-			@ApiResponse(responseCode = "400", description = "Please enter a valid input") }, operationId = "divide")
-	@GetMapping(value = "/divide")
-	public ResponseEntity<CalculationDTO> divide(CalculationRequest values) {
-	
-		return ResponseEntity.ok().body(this.calculatorService.divide(Optional.ofNullable(values)));
-	
 	}
 		
 }
