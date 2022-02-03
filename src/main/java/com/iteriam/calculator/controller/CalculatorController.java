@@ -35,6 +35,9 @@ public class CalculatorController {
 	 */
 	@GetMapping("/home")
 	public String Home() {
+		
+		tracerUtil.trace("Dummy method implemented to test the connection to the controller layer");
+		
 		return "Hello World!";
 	}	
 
@@ -44,10 +47,8 @@ public class CalculatorController {
 					@ApiResponse(responseCode = "400", description = "Please enter a valid input for the first and secodd value") }, operationId = "add")
 	@GetMapping(value = "/add")
 	public ResponseEntity<CalculationDTO> add(CalculationRequest values) {
-		
-		tracerUtil.trace(values);
-		
-        return ResponseEntity.ok().body(this.calculatorService.add(Optional.ofNullable(values)));
+				
+		return ResponseEntity.ok().body(this.calculatorService.add(Optional.ofNullable(values)));
 	}
 	
 	@Operation(summary = "subtract", tags = {
@@ -57,7 +58,6 @@ public class CalculatorController {
 	@GetMapping(value = "/subtract")
 	public ResponseEntity<CalculationDTO> subtract(CalculationRequest values) {
 		
-
 		return ResponseEntity.ok().body(this.calculatorService.subtract(Optional.ofNullable(values)));
 	}
 	
@@ -67,8 +67,8 @@ public class CalculatorController {
 			@ApiResponse(responseCode = "400", description = "Please enter a valid input") }, operationId = "multiply")
 	@GetMapping(value = "/multiply")
 	public ResponseEntity<CalculationDTO> multiply(CalculationRequest values) {
-	
-	return ResponseEntity.ok().body(this.calculatorService.multiply(Optional.ofNullable(values)));
+		
+		return ResponseEntity.ok().body(this.calculatorService.multiply(Optional.ofNullable(values)));
 	
 	}
 		
