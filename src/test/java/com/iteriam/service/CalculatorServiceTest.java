@@ -1,6 +1,5 @@
 package com.iteriam.service;
 
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Optional;

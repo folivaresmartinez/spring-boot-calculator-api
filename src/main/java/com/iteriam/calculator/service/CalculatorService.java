@@ -33,7 +33,6 @@ public class CalculatorService implements ICalculatorService {
 	private void GetValuesFromRequest(Optional<CalculationRequest> values) {
 
 		ValuesDtO checkValues = new ValuesDtO(values.flatMap(CalculationRequest::getFirstValue), values.flatMap(CalculationRequest::getSecondValue));
-
 		
 		try {
 			

@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CalculationDTO {
 
+	/**
+	 * operation Result.
+	 */
 	private BigDecimal result;
 
 }
