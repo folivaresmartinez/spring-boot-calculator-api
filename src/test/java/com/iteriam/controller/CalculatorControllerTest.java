@@ -72,6 +72,41 @@ public class CalculatorControllerTest {
 				(result.getResponse().getContentLength() == 0));
     }
     
+    @Test
+    void addWithParamsOperationMustReturnNumberFormatException_Case_2 () throws Exception{
+    	
+   		strParams = MessageFormat.format(strParams, "xx", "10");
+   		
+   		ResultActions resultActions = this.mockMvc.perform(get("/api/calculator/addWithParams?" + strParams)
+		           .contentType(MediaType.APPLICATION_JSON)
+		           .accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
+		
+		MvcResult result = resultActions.andReturn();
+		
+		assertTrue((result.getResponse().getStatus() == HttpStatus.BAD_REQUEST.value()) &&
+				(result.getResponse().getContentLength() == 0));
+    } 
+    
+    @Test
+    void addWithParamsOperationMustReturnCorrectValue_Case_3 () throws Exception{
+    	
+   		strParams = MessageFormat.format(strParams, "10", "5");
+            
+   		ResultActions resultActions = this.mockMvc.perform(get("/api/calculator/add?" + strParams)
+		           .contentType(MediaType.APPLICATION_JSON)
+		           .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		
+		MvcResult result = resultActions.andReturn();
+		
+		assertTrue(result.getResponse().getStatus() == HttpStatus.OK.value());
+
+		ObjectMapper mapper = new ObjectMapper();
+		CalculationDTO calculationDTO = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<CalculationDTO>() {});
+		
+		assertTrue(calculationDTO != null);
+		assertEquals(15, calculationDTO.getResult().intValue());
+    }       
+    
 	@Test
     void addOperationMustReturnBadRequestException_Case_1 () throws Exception{
     	
