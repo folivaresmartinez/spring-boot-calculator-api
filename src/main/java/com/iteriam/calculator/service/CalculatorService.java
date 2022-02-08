@@ -48,6 +48,16 @@ public class CalculatorService implements ICalculatorService {
 	}
 	
 	@Override
+	public CalculationDTO addWithParams(Optional<Float> firstOperator, Optional<Float> secondOperator) {
+		
+		firstValue = firstOperator.get();
+		secondValue = secondOperator.get();
+				
+		return new CalculationDTO(BigDecimal.valueOf(firstValue).add(BigDecimal.valueOf(secondValue)));
+	}
+	
+	
+	@Override
 	public CalculationDTO add(Optional<CalculationRequest> values) {
 		
 		tracerUtil.trace("Operation: Add, values: " + values);
