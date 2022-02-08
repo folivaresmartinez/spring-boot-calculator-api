@@ -196,7 +196,7 @@ public class CalculatorControllerTest {
     }
     
     @Test
-    void multiplyOperationMustReturnCorrectValur_Case_3 () throws Exception{
+    void multiplyOperationMustReturnCorrectValue_Case_3 () throws Exception{
     	
    		strParams = MessageFormat.format(strParams, "10", "5");
             
