@@ -90,7 +90,7 @@ public class CalculatorControllerTest {
     }
     
     @Test
-    void addOperationMustReturnBadRequestException_Case_3 () throws Exception{
+    void addOperationMustReturnCorrectValue_Case_3 () throws Exception{
     	
    		strParams = MessageFormat.format(strParams, "10", "5");
             
@@ -100,16 +100,13 @@ public class CalculatorControllerTest {
 		
 		MvcResult result = resultActions.andReturn();
 		
-		
 		assertTrue(result.getResponse().getStatus() == HttpStatus.OK.value());
 
 		ObjectMapper mapper = new ObjectMapper();
 		CalculationDTO calculationDTO = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<CalculationDTO>() {});
 		
-		if(calculationDTO != null ) {
-			
-			assertEquals(15, calculationDTO.getResult().intValue());
-		}
+		assertTrue(calculationDTO != null);
+		assertEquals(15, calculationDTO.getResult().intValue());
     }    
 
     
@@ -134,19 +131,19 @@ public class CalculatorControllerTest {
     	
    		strParams = MessageFormat.format(strParams, "xx", "10");
             
-	   		ResultActions resultActions = this.mockMvc.perform(get("/api/calculator/subtract?" + strParams)
-			           .contentType(MediaType.APPLICATION_JSON)
-			           .accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
-			
-			MvcResult result = resultActions.andReturn();
-			
-			assertTrue((result.getResponse().getStatus() == HttpStatus.BAD_REQUEST.value()) &&
-					(result.getResponse().getErrorMessage().equals("Please enter a valid input values")) && 
-					(result.getResponse().getContentLength() == 0));
+   		ResultActions resultActions = this.mockMvc.perform(get("/api/calculator/subtract?" + strParams)
+		           .contentType(MediaType.APPLICATION_JSON)
+		           .accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
+		
+		MvcResult result = resultActions.andReturn();
+		
+		assertTrue((result.getResponse().getStatus() == HttpStatus.BAD_REQUEST.value()) &&
+				(result.getResponse().getErrorMessage().equals("Please enter a valid input values")) && 
+				(result.getResponse().getContentLength() == 0));
     }
     
     @Test
-    void substractOperationMustReturnBadRequestException_Case_3 () throws Exception{
+    void substractOperationMustReturnCorrectValue_Case_3 () throws Exception{
     	
    		strParams = MessageFormat.format(strParams, "10", "5");
             
@@ -161,10 +158,8 @@ public class CalculatorControllerTest {
 		ObjectMapper mapper = new ObjectMapper();
 		CalculationDTO calculationDTO = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<CalculationDTO>() {});
 		
-		if(calculationDTO != null ) {
-			
-			assertEquals(5, calculationDTO.getResult().intValue());
-		}
+		assertTrue(calculationDTO != null);			
+		assertEquals(5, calculationDTO.getResult().intValue());
     }    
     
     
@@ -201,7 +196,7 @@ public class CalculatorControllerTest {
     }
     
     @Test
-    void multiplyOperationMustReturnBadRequestException_Case_3 () throws Exception{
+    void multiplyOperationMustReturnCorrectValur_Case_3 () throws Exception{
     	
    		strParams = MessageFormat.format(strParams, "10", "5");
             
@@ -216,9 +211,7 @@ public class CalculatorControllerTest {
 		ObjectMapper mapper = new ObjectMapper();
 		CalculationDTO calculationDTO = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<CalculationDTO>() {});
 		
-		if(calculationDTO != null ) {
-			
-			assertEquals(50, calculationDTO.getResult().intValue());
-		}
+		assertTrue(calculationDTO != null);			
+		assertEquals(50, calculationDTO.getResult().intValue());
     }     	
 }
