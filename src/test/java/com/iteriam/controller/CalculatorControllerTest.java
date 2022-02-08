@@ -58,6 +58,21 @@ public class CalculatorControllerTest {
 	}
 	
     @Test
+    void addWithParamsOperationMustReturnNumberFormatException_Case_1 () throws Exception{
+    	
+   		strParams = MessageFormat.format(strParams, "6", "xx");
+   		
+   		ResultActions resultActions = this.mockMvc.perform(get("/api/calculator/addWithParams?" + strParams)
+		           .contentType(MediaType.APPLICATION_JSON)
+		           .accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
+		
+		MvcResult result = resultActions.andReturn();
+		
+		assertTrue((result.getResponse().getStatus() == HttpStatus.BAD_REQUEST.value()) &&
+				(result.getResponse().getContentLength() == 0));
+    }
+    
+	@Test
     void addOperationMustReturnBadRequestException_Case_1 () throws Exception{
     	
    		strParams = MessageFormat.format(strParams, "6", "xx");
