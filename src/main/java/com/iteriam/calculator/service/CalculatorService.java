@@ -27,7 +27,7 @@ public class CalculatorService implements ICalculatorService {
 	private float secondValue = 0;
 	
 	/**
-	 * Method that implement the parsing operation over the input values
+	 * Method that implement the parsing operation over the input values.
 	 * @param values: Values to parse
 	 */
 	private void GetValuesFromRequest(Optional<CalculationRequest> values) {
