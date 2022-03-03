@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class CalculationRequest {
 
 	/**
-	 * First Operator Value .
+	 * First Operator Value
 	 */
 	private Optional<String> firstValue;
 	
