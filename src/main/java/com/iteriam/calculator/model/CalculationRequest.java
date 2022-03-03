@@ -10,19 +10,19 @@ import lombok.NoArgsConstructor;
 public class CalculationRequest {
 
 	/**
-	 * First Operator Value 
+	 * First Operator Value
 	 */
 	private Optional<String> firstValue;
 	
 	/**
-	 * Second Operator Value
+	 * Second Operator Value.
 	 */
 	private Optional<String> secondValue;
 	
 	/**
 	 * Default Constructor
-	 * @param firstValue: First Operator Value
-	 * @param secondValue: Second Operator Value
+	 * @param firstValue: First Operator Value.
+	 * @param secondValue: Second Operator Value.
 	 */
 	public CalculationRequest(Optional<String> firstValue, Optional<String> secondValue) {
 		this.firstValue = firstValue;
