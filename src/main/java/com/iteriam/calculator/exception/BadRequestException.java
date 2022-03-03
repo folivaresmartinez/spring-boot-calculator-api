@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import lombok.NoArgsConstructor;
 
-//Test Comentarios
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Please enter a valid input values")
 @NoArgsConstructor
