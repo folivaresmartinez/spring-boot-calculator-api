@@ -39,7 +39,7 @@ public class CalculatorController {
 
 	
 	/**
-	 * Test method published by the REST controller
+	 * Test method published by the REST controller. Añadido este comentario
 	 * @return
 	 */
 	@GetMapping("/home")
